@@ -3,22 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="icon" href="iconlogo.png" />
-
     <title>Juciy</title>
 
     <!-- File CSS -->
-    <link rel="stylesheet" href="styleMedia.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
+    <header id="home">
       <nav>
         <h2><a class="logo" href="#">Juciy</a></h2>
-        <ul>
-          <li><a href="#">Home</a></li>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul id="nav-menu">
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <!-- <li><a href="#">Portfolio</a></li> -->
-          <li><a href="#last-section">Contact</a></li>
+          <li><a href="#stand">Stand</a></li>
+          <li>
+            <button
+              id="theme-toggle"
+              aria-label="Toggle theme"
+              title="Toggle light/dark mode"
+            >
+              🌙
+            </button>
+          </li>
+          <li>
+            <div class="theme-switch">
+              <div class="switch"></div>
+            </div>
+          </li>
         </ul>
       </nav>
       <div class="container">
@@ -36,7 +61,7 @@
         <h2>Best Ingredients food juciy <span>on right handmade</span></h2>
         <div class="boxs">
           <div class="box">
-            <h3>01</h3>
+            <img src="img/blackberry.png" alt="leaf" />
             <h4>Best Ingredients</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
@@ -45,7 +70,7 @@
             </p>
           </div>
           <div class="box">
-            <h3>02</h3>
+            <img src="img/blackberry.png" alt="leaf" />
             <h4>Best Ingredients</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
@@ -54,9 +79,80 @@
             </p>
           </div>
         </div>
+        <div class="btn">
+          <button>shop now</button>
+        </div>
+      </div>
+      <div class="container second"></div>
+    </section>
+    <section class="stand" id="stand">
+      <div class="container">
+        <h1>blackberry</h1>
+        <img src="img/stand.png" alt="leaf" />
       </div>
     </section>
-    <section class="last-section" id="last-section"></section>
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h3>About Juciy</h3>
+          <p>
+            Juciy is dedicated to providing the best handmade food and beverages
+            using the finest ingredients. Our mission is to deliver freshness
+            and quality in every sip.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#stand">Stand</a></li>
+            <li><a href="#">Shop Now</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="" target="_blank" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/mahmoud-farraj/" target="_blank" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@juciy.com</p>
+          <p>Phone: +123 456 7890</p>
+          <p>Address: 123 Juciy Street, Fresh City, World</p>
+        </div>
+      </div>
+
+      <!-- Copyright Section -->
+      <div class="footer-bottom">
+        <script>
+          const currentYear = new Date().getFullYear();
+          document.write(`&copy; ${currentYear} mahmoud-farraj. All rights reserved.`);
+        </script>
+      </div>
+    </footer>
     <!-- cdn gsap -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
@@ -73,5 +169,6 @@
 
     <!-- File JS -->
     <script src="script.js"></script>
+    <script src="theme.js"></script>
   </body>
 </html>
