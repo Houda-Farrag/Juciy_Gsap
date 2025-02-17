@@ -1,15 +1,27 @@
+// DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize all functionality
+  initNavbarScroll();
+  initSmoothScroll();
+  initAnimations();
+  initHamburgerMenu();
+});
+
+// Navbar Scroll Effect
+function initNavbarScroll() {
   const navbar = document.querySelector("nav");
 
   window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 0) {
       navbar.classList.add("scrolled");
     } else {
       navbar.classList.remove("scrolled");
     }
   });
-});
-document.addEventListener("DOMContentLoaded", function () {
+}
+
+// Smooth Scroll for Anchor Links
+function initSmoothScroll() {
   const navbar = document.querySelector("nav");
   const navHeight = navbar.offsetHeight; // Get navbar height
   const links = document.querySelectorAll("nav a[href^='#']");
@@ -21,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        const targetPosition = targetElement.offsetTop - navHeight - 20; // Offset by navbar height + extra space
+        const targetPosition = targetElement.offsetTop - navHeight; // Offset by navbar height
 
         window.scrollTo({
           top: targetPosition,
@@ -30,128 +42,83 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
+}
 
-gsap.registerPlugin(ScrollTrigger);
+// GSAP Animations
+function initAnimations() {
+  gsap.registerPlugin(ScrollTrigger);
 
-// gsap
-//   .timeline({
-//     scrollTrigger: {
-//       trigger: ".about",
-//       start: "0% 95%",
-//       end: "80% 60%",
-//       scrub: true,
-//     },
-//   })
-//   .to(
-//     "#can",
-//     {
-//       top: "150%",
-//       left: "80%",
-//       scale: ".8",
-//       rotate: "-30deg",
-//       duration: 1.5,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#leaf",
-//     {
-//       top: "170%",
-//       left: "90%",
-//       scale: ".8",
-//       rotate: "0deg",
-//       zIndex: 5,
-//       duration: 1.5,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#black-berry1",
-//     {
-//       top: "120%",
-//       left: "10%",
-//       scale: ".5",
-//       rotate: "90deg",
-//       duration: 1.5,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#black-berry2",
-//     {
-//       top: "140%",
-//       left: "85%",
-//       scale: ".8",
-//       rotate: "90deg",
-//       duration: 1.5,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#black-berry3",
-//     {
-//       top: "170%",
-//       left: "76%",
-//       scale: ".4",
-//       rotate: "-30deg",
-//       duration: 1.5,
-//     },
-//     "can"
-//   );
-// Function to handle responsive GSAP animations
-function setupAnimations() {
+  setupAboutAnimations();
+  setupStandAnimations();
+
+  // Update animations on window resize
+  window.addEventListener("resize", () => {
+    gsap.killTweensOf([
+      "#can",
+      "#leaf",
+      "#black-berry1",
+      "#black-berry2",
+      "#black-berry3",
+      "#stand img",
+    ]);
+    setupAboutAnimations();
+    setupStandAnimations();
+  });
+}
+
+// About Section Animations
+function setupAboutAnimations() {
   const isMobile = window.innerWidth <= 768; // Check if the screen is mobile-sized
 
-  // Define animation properties based on screen size
   const canAnimation = {
-    top: isMobile ? "120%" : "150%",
-    left: isMobile ? "60%" : "80%",
+    top: isMobile ? "130%" : "150%",
+    left: isMobile ? "70%" : "80%",
     scale: isMobile ? "0.6" : "0.8",
     rotate: "-30deg",
     duration: 1.5,
   };
 
   const leafAnimation = {
-    top: isMobile ? "140%" : "170%",
-    left: isMobile ? "70%" : "90%",
+    top: isMobile ? "130%" : "170%",
+    left: isMobile ? "87%" : "90%",
     scale: isMobile ? "0.6" : "0.8",
     rotate: "0deg",
-    zIndex: 5,
+    zIndex: 3,
     duration: 1.5,
   };
 
   const blackBerry1Animation = {
-    top: isMobile ? "100%" : "120%",
-    left: isMobile ? "5%" : "10%",
+    top: isMobile ? "109%" : "120%",
+    left: isMobile ? "2%" : "10%",
     scale: isMobile ? "0.4" : "0.5",
     rotate: "90deg",
+    zIndex: -1,
     duration: 1.5,
   };
 
   const blackBerry2Animation = {
     top: isMobile ? "120%" : "140%",
-    left: isMobile ? "70%" : "85%",
+    left: isMobile ? "85%" : "85%",
     scale: isMobile ? "0.6" : "0.8",
     rotate: "90deg",
     duration: 1.5,
   };
 
   const blackBerry3Animation = {
-    top: isMobile ? "140%" : "170%",
+    top: isMobile ? "135%" : "170%",
     left: isMobile ? "60%" : "76%",
     scale: isMobile ? "0.3" : "0.4",
-    rotate: "-30deg",
+    rotate: "30deg",
     duration: 1.5,
   };
 
-  // GSAP Timeline
+  // GSAP Timeline for About Section
   gsap
     .timeline({
       scrollTrigger: {
         trigger: ".about",
-        start: "0% 95%",
-        end: "80% 60%",
+        start: "5% 95%",
+        end: "90% 70%",
         scrub: true,
       },
     })
@@ -162,94 +129,10 @@ function setupAnimations() {
     .to("#black-berry3", blackBerry3Animation, "can");
 }
 
-// Call the function to set up animations
-
-// Update animations on window resize
-
-// gsap
-//   .timeline({
-//     scrollTrigger: {
-//       trigger: ".stand",
-//       start: "20% 95%",
-//       end: "80% 60%",
-//       scrub: true,
-//     },
-//   })
-//   .to(
-//     "#can",
-//     {
-//       top: "250%",
-//       left: "50%",
-//       scale: 1,
-//       rotate: "360deg",
-//       duration: 1.5,
-//       ease: "power2.out",
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#can",
-//     {
-//       scale: 1.1,
-
-//       duration: 1.2,
-//       ease: "power2.out",
-//       zIndex: 10,
-//     },
-//     "+=0.5"
-//   )
-//   .to(
-//     "#black-berry1",
-//     {
-//       top: "230%",
-//       left: "20%",
-//       scale: 0.9,
-//       rotate: "80deg",
-//       duration: 1.5,
-//       ease: "none",
-//       zIndex: -1,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#black-berry2",
-//     {
-//       top: "230%",
-//       left: "80%",
-//       scale: 0.9,
-//       rotate: "80deg",
-//       duration: 1.5,
-//       ease: "none",
-//       zIndex: -1,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#black-berry3",
-//     {
-//       top: "250%",
-//       left: "20%",
-//       scale: 0.9,
-//       rotate: "80deg",
-//       duration: 1.5,
-//       ease: "none",
-//       zIndex: -1,
-//     },
-//     "can"
-//   )
-//   .to(
-//     "#stand img",
-//     {
-//       scale: 1.2,
-//       duration: 1.5,
-//       ease: "elastic.out(1, 0.5)",
-//     },
-//     "-=1"
-//   );
+// Stand Section Animations
 function setupStandAnimations() {
   const isMobile = window.innerWidth <= 768; // Check if the screen is mobile-sized
 
-  // Define animation properties based on screen size
   const canAnimation = {
     top: isMobile ? "250%" : "250%",
     left: isMobile ? "50%" : "50%",
@@ -260,9 +143,9 @@ function setupStandAnimations() {
   };
 
   const blackBerry1Animation = {
-    top: isMobile ? "230%" : "230%",
-    left: isMobile ? "15%" : "20%",
-    scale: isMobile ? 0.7 : 1,
+    top: isMobile ? "220%" : "230%",
+    left: isMobile ? "20%" : "20%",
+    scale: isMobile ? 0.9 : 1,
     rotate: "80deg",
     duration: 1.5,
     ease: "none",
@@ -270,8 +153,8 @@ function setupStandAnimations() {
   };
 
   const blackBerry2Animation = {
-    top: isMobile ? "240%" : "230%",
-    left: isMobile ? "70%" : "80%",
+    top: isMobile ? "230%" : "230%",
+    left: isMobile ? "80%" : "80%",
     scale: isMobile ? 0.7 : 0.9,
     rotate: "80deg",
     duration: 1.5,
@@ -280,10 +163,19 @@ function setupStandAnimations() {
   };
 
   const blackBerry3Animation = {
-    top: isMobile ? "230%" : "250%",
-    left: isMobile ? "60%" : "20%",
+    top: isMobile ? "250%" : "250%",
+    left: isMobile ? "30%" : "20%",
     scale: isMobile ? 0.7 : 0.9,
     rotate: "80deg",
+    duration: 1.5,
+    ease: "none",
+    zIndex: -1,
+  };
+  const leafAnimation = {
+    top: isMobile ? "260%" : "250%",
+    left: isMobile ? "65%" : "80%",
+    scale: isMobile ? 0.7 : 0.9,
+    rotate: "0deg",
     duration: 1.5,
     ease: "none",
     zIndex: -1,
@@ -295,7 +187,7 @@ function setupStandAnimations() {
     ease: "elastic.out(1, 0.5)",
   };
 
-  // GSAP Timeline
+  // GSAP Timeline for Stand Section
   gsap
     .timeline({
       scrollTrigger: {
@@ -319,34 +211,35 @@ function setupStandAnimations() {
     .to("#black-berry1", blackBerry1Animation, "can")
     .to("#black-berry2", blackBerry2Animation, "can")
     .to("#black-berry3", blackBerry3Animation, "can")
+    .to("#leaf", leafAnimation, "can")
     .to("#stand img", standImageAnimation, "-=1");
 }
 
-// Call the function to set up animations
-setupAnimations();
-setupStandAnimations();
+// Hamburger Menu Toggle
+// function initHamburgerMenu() {
+//   const hamburger = document.getElementById("hamburger");
+//   const navMenu = document.getElementById("nav-menu");
 
-// Update animations on window resize
-// window.addEventListener("resize", () => {
-//   gsap.killTweensOf(["#can", "#black-berry1", "#black-berry2", "#black-berry3", "#stand img"]); // Kill existing animations
-//   setupAnimations(); // Re-run the setup function
-//   setupStandAnimations(); // Re-run the setup function
-// });
+//   hamburger.addEventListener("click", () => {
+//     hamburger.classList.toggle("active");
+//     navMenu.classList.toggle("active");
+//   });
+// }
+function initHamburgerMenu() {
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
 
-window.addEventListener("resize", () => {
-  gsap.killTweensOf([
-    "#can",
-    "#leaf",
-    "#black-berry1",
-    "#black-berry2",
-    "#black-berry3",
-  ]); // Kill existing animations
+  // Toggle hamburger menu on click
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
 
-});
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
+  // Close hamburger menu on scroll
+  window.addEventListener("scroll", () => {
+    if (hamburger.classList.contains("active")) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  });
+}
