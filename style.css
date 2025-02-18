@@ -61,34 +61,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-#theme-toggle {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--background-color);
-  transition: all 1s ease-in-out;
-  border-radius: 50%;
-  padding: 2px;
-  background-color: var(--background-color);
-}
-#theme-toggle:hover {
-  transition: all .5s ease-in-out;
-  background-color: var(--background-color);
-  transform: scale(1.1);
-  animation: button-theme 1s infinite;
-}
-@keyframes button-theme {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+
 .theme-switch {
   width: 70px;
   height: 30px;
@@ -111,9 +84,7 @@ body {
   align-items: center;
   transition: 0.5s all ease;
 }
-.switch{
-  background-color: var(--primary-color);
-}
+
 .light-theme .theme-switch .switch {
   transform: translateX(37px); /* Move the slider to the right in light mode */
 }
@@ -294,7 +265,6 @@ header .container {
   align-items: center;
   justify-content: center;
 }
-
 #can {
   position: absolute;
   width: 40%;
@@ -305,47 +275,8 @@ header .container {
   z-index: 4;
 }
 
-#can:hover {
-  /* animation: bouncey 1s 0s ease infinite alternate; */
-  transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-}
-
-@keyframes bouncey {
-  0% {
-    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-  }
-  30% {
-    transform: translate(-50%, -50%) scale(1.3) rotate(5deg);
-  }
-  60% {
-    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.25) rotate(8deg);
-  }
-}
-header .container:has(#can:hover) h1 {
-  color: #825dd2;
+header .container h1 {
   transition: all 0.3s ease-in-out;
-  text-shadow: 0 0 20px #e2e1e7, 0 0 30px #825dd2;
-}
-#can:hover ~ #black-berry1 {
-  transform: translateX(-200px) rotate(30deg);
-  animation: bouncey 1s 0s ease infinite alternate;
-}
-
-#can:hover ~ #black-berry2 {
-  transform: translateY(-20px) scale(1.1);
-  animation: bouncey 1s 0s ease infinite alternate;
-}
-
-#can:hover ~ #black-berry3 {
-  transform: translate(-300px, -10px) rotate(-10deg);
-  animation: bouncey 1s 0s ease infinite alternate;
-}
-
-#can:hover ~ #leaf {
-  transform: translate(200px, -400px) rotate(-100deg);
 }
 
 #coconut {
@@ -459,137 +390,7 @@ header .container h1 {
     width: 25%; /* Adjust size for mobile */
   }
 }
-/* about section */
-.about {
-  color: var(--text-color);
-  padding: 10%;
-  font-size: clamp(1.5rem, 5vw, 2rem);
-  height: 100vh;
-  display: flex;
-  scroll-margin-top: 80px; /* Adjust based on navbar height */
-  font-family: "Product Sans Regular", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  min-height: 100vh;
-  gap: 20px;
-  overflow-x: hidden;
-  width: 100%;
-  background-color: var(--background-color);
-}
-.about .container {
-  width: 50%; /* Adjusted for smaller screens */
-  overflow: hidden;
-  height: 100%;
-  gap: 20px;
-}
-.about div h2 {
-  text-align: left;
-  font-family: "Product Sans Regular", sans-serif;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: clamp(4rem, 3vw, 1.3rem);
-  word-spacing: 2px;
-  margin-bottom: 5%;
-}
-.about div h2 span {
-  color: var(--primary-color);
-  text-transform: capitalize;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-.boxs {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  p {
-    text-align: left;
-    font-family: "Product Sans Regular", sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: rgb(86, 78, 78);
-    font-size: clamp(1rem, 2vw, 0.3rem);
-  }
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    /* margin-inline: auto; */
-  }
-  h4 {
-    text-align: left;
-    font-family: "Product Sans Regular", sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-}
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-  border: 2px solid var(--primary-color);
-  border-color: white;
-  border-radius: 10px;
-  transition: all 0.4s ease-in-out;
-  img {
-    transition: all 0.7s ease-in-out;
-    transform: rotate(60deg);
-  }
-}
-.box:hover {
-  box-shadow: 0px 0px 15px #7845e7;
-  background-color: #7845e7;
-  color: #825dd2;
-  border: 2px solid #b496f3;
-  border-radius: 10px;
-  color: white;
-  /* background: rgba(103, 72, 172, 0.6); */
-  backdrop-filter: blur(10px); /* Adds a blur effect */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  img {
-    transition: all 0.4s ease-in-out;
-    transform: rotate(50deg);
-  }
-  p {
-    color: white;
-  }
-}
 
-.btn {
-  margin-top: 3%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  button {
-    padding: 15px 30px;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 40px;
-    color: var(--text);
-    font-family: "Product Sans Regular", sans-serif;
-    font-weight: 600;
-    font-size: clamp(1.2rem, 2vw, 0.3rem);
-    letter-spacing: 1px;
-    text-transform: capitalize;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border: 2px solid #7845e7;
-  }
-  button:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-  }
-}
-
-.about .second {
-  width: 50%; /* Adjusted for smaller screens */
-  overflow: hidden;
-  height: 100%;
-  gap: 20px;
-  overflow: hidden;
-}
-/* =================== */
 /* Existing .about styles */
 .about {
   color: var(--text-color);
@@ -605,19 +406,19 @@ header .container h1 {
   min-height: 100vh;
   gap: 20px;
   overflow-x: hidden;
-  width: 100%;
+  width: 75%;
   background-color: var(--background-color);
 }
 
-.about .container,
-.about .second {
+.about .container {
   width: 100%; /* Full width on smaller screens */
   overflow: hidden;
   height: auto; /* Adjusted for responsiveness */
   gap: 20px;
+  
 }
 
-.about div h2 {
+.about .container h2 {
   text-align: left;
   font-family: "Product Sans Regular", sans-serif;
   font-weight: 600;
@@ -627,7 +428,7 @@ header .container h1 {
   margin-bottom: 5%;
 }
 
-.about div h2 span {
+.about .container h2 span {
   color: var(--primary-color);
   text-transform: capitalize;
   font-weight: 900;
@@ -638,6 +439,7 @@ header .container h1 {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  
 }
 
 .boxs p {

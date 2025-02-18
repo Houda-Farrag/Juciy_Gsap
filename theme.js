@@ -79,11 +79,11 @@ const toggleTheme = () => {
   if (newTheme === "light") {
     document.body.classList.add("light-theme"); 
     switchSlider.style.transform = "translateX(37px)";
-    switchSlider.innerHTML = "🌞";
+    // switchSlider.innerHTML = "🌞";
   } else {
     document.body.classList.remove("light-theme");
     switchSlider.style.transform = "translateX(0)";
-    switchSlider.innerHTML = "🌙";
+    // switchSlider.innerHTML = "🌙";
   }
 };
 
