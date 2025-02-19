@@ -9,7 +9,7 @@
 } */
 @font-face {
   font-family: "Product Sans Regular";
-  src: url("/Fonts/ProductSansRegular.ttf");
+  src: url("./Fonts/ProductSansRegular.ttf");
 }
 :root {
   --primary-color: #825dd2;
