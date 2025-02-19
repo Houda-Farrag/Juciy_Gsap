@@ -74,7 +74,7 @@ function initAnimations() {
 // About Section Animations
 function setupAboutAnimations() {
   const canAnimation = {
-    top: isSmall ? "150%" : isMobile ? "130%" : "150%",
+    top: isSmall ? "150%" : isMobile ? "130%" :  "150%",
     left: isSmall ? "75%" : isMobile ? "70%" : "80%",
     scale: isSmall ? "0.5" : isMobile ? "0.6" : "0.8",
     rotate: "-30deg",
@@ -136,7 +136,7 @@ function setupAboutAnimations() {
 // Stand Section Animations
 function setupStandAnimations() {
   const canAnimation = {
-    top: isSmall ? "270%" : isMobile ? "250%" : "254%",
+    top: isSmall ? "270%" : isMobile ? "250%" : isTablet ? "252%" : "256%",
     left: isSmall ? "50%" : isMobile ? "50%" : "50%",
     scale: isSmall ? 0.7 : isMobile ? 0.8 : .8,
     rotate: "360deg",
