@@ -136,7 +136,7 @@ function setupAboutAnimations() {
 // Stand Section Animations
 function setupStandAnimations() {
   const canAnimation = {
-    top: isSmall ? "270%" : isMobile ? "250%" : isTablet ? "252%" : "256%",
+    top: isSmall ? "250%" : isMobile ? "250%" : isTablet ? "252%" : "256%",
     left: isSmall ? "50%" : isMobile ? "50%" : "50%",
     scale: isSmall ? 0.7 : isMobile ? 0.8 : .8,
     rotate: "360deg",
@@ -198,7 +198,7 @@ function setupStandAnimations() {
       scrollTrigger: {
         trigger: ".stand",
         start: isSmall ? "10% 95%" : isMobile ? "5% 95%" : "5% 95%",
-        end: "80% 70%",
+        end: isSmall ? "90% 80%" : isMobile ? "80% 70%" : "80% 70%",
         scrub: true,
       },
     })
