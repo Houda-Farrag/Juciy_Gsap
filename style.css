@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /* 
 @font-face {
@@ -9,7 +9,7 @@
 } */
 @font-face {
   font-family: "Product Sans Regular";
-  src: url("./Fonts/ProductSansRegular.ttf");
+  src: url("/Fonts/ProductSansRegular.ttf");
 }
 :root {
   --primary-color: #825dd2;
@@ -145,7 +145,7 @@ nav.scrolled ul li a {
   text-shadow: 0 0 20px #e2e1e7, 0 0 30px #7845e7;
 }
 
-nav h2 a {
+nav h1 a {
   color: var(--text-color);
   font-family: "Anton", sans-serif;
   font-size: clamp(1.5rem, 5vw, 2rem);
@@ -447,7 +447,7 @@ header .container h1 {
   font-family: "Product Sans Regular", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
-  color: rgb(86, 78, 78);
+  color: var(--text-color);
   font-size: clamp(1rem, 2vw, 1.2rem); /* Adjusted for smaller screens */
 }
 
@@ -457,7 +457,7 @@ header .container h1 {
   border-radius: 50%;
 }
 
-.boxs h4 {
+.boxs h3 {
   text-align: left;
   font-family: "Product Sans Regular", sans-serif;
   font-weight: 600;
@@ -664,7 +664,7 @@ header .container h1 {
   width: 100%; /* Ensure container takes full width */
 }
 
-.stand .container h1 {
+.stand .container h3 {
   position: absolute;
   font-size: clamp(6vw, 8vw, 10vw); /* Responsive font size */
   text-transform: uppercase;
@@ -721,7 +721,7 @@ header .container h1 {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .stand .container h1 {
+  .stand .container h3 {
     font-size: clamp(8vw, 10vw, 12vw); /* Larger font size for mobile */
     letter-spacing: 5px; /* Reduced letter spacing for mobile */
   }
