@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-/* 
-@font-face {
-  font-family: "Product Sans";
-  src: url("/Fonts/ProductSansBold.ttf");
-  font-weight: bold;
-  font-style: normal;
-} */
 @font-face {
   font-family: "Product Sans Regular";
   src: url("./Fonts/ProductSansRegular.ttf");
@@ -25,14 +18,14 @@
 }
 
 [data-theme="dark"] {
-  --primary-color: #825dd2; /* Keep the primary color consistent */
-  --secondary-color: #d2a885; /* Keep the secondary color consistent */
-  --tertiary-color: #c5b6e6; /* Keep the tertiary color consistent */
-  --background-color: #121212; /* Dark background for dark mode */
-  --text-color: #e0e0e0; /* Light text for better readability */
-  --card-background: #1e1e1e; /* Slightly lighter than background for cards/boxes */
-  --card-border: #333333; /* Border color for cards/boxes */
-  --hover-color: #7845e7; /* Hover color for buttons/links */
+  --primary-color: #825dd2; 
+  --secondary-color: #d2a885; 
+  --tertiary-color: #c5b6e6; 
+  --background-color: #121212; 
+  --text-color: #e0e0e0;
+  --card-background: #1e1e1e;
+  --card-border: #333333; 
+  --hover-color: #7845e7; 
   --blacberry-color: #7845e7;
 }
 [data-theme="light"] {
